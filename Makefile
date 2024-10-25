@@ -6,7 +6,7 @@
 #    By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 17:34:19 by itsiros           #+#    #+#              #
-#    Updated: 2024/10/23 18:59:11 by itsiros          ###   ########.fr        #
+#    Updated: 2024/10/25 14:17:21 by itsiros          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS = ft_isalpha.c ft_isalnum.c ft_isascii.c \
 		ft_strncmp.c ft_memchr.c ft_memcmp.c \
 		ft_strnstr.c ft_atoi.c ft_calloc.c \
 		ft_strdup.c ft_putchar_fd.c ft_putnbr_fd.c \
-		ft_substr.c ft_strjoin.c
+		ft_substr.c ft_strjoin.c ft_putendl_fd.c \
+		ft_putstr_fd.c ft_strmapi.c ft_striteri.c \
+		ft_itoa.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:42:43 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/23 11:43:36 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/24 15:12:21 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+	int		i;
 
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }
