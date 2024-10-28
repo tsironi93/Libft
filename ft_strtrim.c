@@ -6,61 +6,60 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:18:02 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/26 18:27:51 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/28 12:02:26 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int	ft_trim(const char *set, char c)
+static char	*new_str(const char *s1, size_t start, size_t len)
+{
+	char	*str;
+	size_t	i;
+	size_t	len_s1;
+
+	len_s1 = ft_strlen(s1);
+	if (len <= 0 || start >= len_s1)
+		return (ft_strdup(""));
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s1[start + i];
+		i++;
+	}
+	return (str);
+}
+
+static int	to_trim(const char *set, char c)
 {
 	int	i;
 
 	i = 0;
 	while (set[i])
 	{
-		if (ft_strncmp)
-		{
-			//printf ("%d\n", i);
+		if (c == set[i])
 			return (1);
-		}
 		i++;
-		// else
-		// 	return (0);
 	}
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		i;
-	int		len;
-	int		j;
-	char	*str;
+	int	i;
+	int	j;
 
-	len = ft_strlen(s1);
-	if (len == 0)
-		return (ft_strdup(""));
 	i = 0;
-	while (ft_trim(set, s1[i]))
-		i++;
-	while (ft_trim(set, s1[len]))
-		len--;
-	if (len <= 0 || i >= len)
+	j = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 0)
 		return (ft_strdup(""));
-	len -= i + 1;
-	str = ft_calloc(len, sizeof(char));
-	if (!str)
-		return (NULL);
-	j = 0;
-	while (i < len)
-		str[j++] = s1[i++];
-	return (str);
+	while (to_trim(set, s1[i]))
+		i++;
+	while (to_trim(set, s1[j]))
+		j--;
+	return (new_str(s1, i, j - (i - 1)));
 }
-// int main ()
-// {
-// 	char str[] = "\n\\hellogianni\n\n\n";
-// 	printf ("%s\n", ft_strtrim(str, "\n"));
-// 	return (0);
-// }
