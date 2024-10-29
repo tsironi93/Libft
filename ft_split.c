@@ -6,29 +6,34 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:14:57 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/25 16:14:58 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/29 08:47:15 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countstrs(const char *s, char c)
+static int	ft_countstrs(const char *s, char c)
 {
-	int	i;
 	int	count;
+	int	x;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	x = 0;
+	while (*s)
 	{
-		if (s[i] == c)
+		if (*s != c && x == 0)
+		{
+			x = 1;
 			count++;
-		i++;
+		}
+		else if (*s == c)
+			x = 0;
+		s++;
 	}
 	return (count);
 }
 
-void	*ft_free(char **s, int count)
+static void	*ft_free(char **s, int count)
 {
 	int	i;
 
@@ -42,7 +47,59 @@ void	*ft_free(char **s, int count)
 	return (NULL);
 }
 
+static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
+{
+	*i = 0;
+	*j = 0;
+	*s_word = -1;
+}
+
+
+static char	*fill_word(const char *str, int start, int end)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while (start < end)
+	{
+		word[i] = str[start];
+		i++;
+		start++;
+	}
+	word[i] = 0;
+	return (word);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	
+	char	**res;
+	size_t	i;
+	int		j;
+	int		s_word;
+	size_t	slen;
+
+	ft_initiate_vars(&i, &j, &s_word);
+	slen = ft_strlen(s);
+	res = ft_calloc((ft_countstrs(s, c) + 1), sizeof(char *));
+	if (!res)
+		return (NULL);
+	while (i <= slen)
+	{
+		if (s[i] != c && s_word < 0)
+			s_word = i;
+		else if ((s[i] == c || i == slen) && s_word >= 0)
+		{
+			res[j] = fill_word(s, s_word, i);
+			if (!(res[j]))
+				return (ft_free(res, j));
+			s_word = -1;
+			j++;
+		}
+		i++;
+	}
+	return (res);
 }

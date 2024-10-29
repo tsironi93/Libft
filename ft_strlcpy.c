@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 12:37:45 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/28 22:55:35 by itsiros          ###   ########.fr       */
+/*   Created: 2024/10/28 22:16:27 by itsiros           #+#    #+#             */
+/*   Updated: 2024/10/28 22:34:14 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char			*str;
-	size_t			i;
-	unsigned int	src_len;
+	size_t	srcsize;
+	int		i;
 
-	if (!s)
-		return (NULL);
-	src_len = ft_strlen(s);
-	if (src_len < start)
-		return (ft_strdup(""));
-	i = ft_strlen(s + start);
-	if (len > i)
-		len = i;
-	str = ft_calloc(len + 1, sizeof(char));
-	if (!str)
-		return (NULL);
+	srcsize = ft_strlen(src);
 	i = 0;
-	while (i < len)
+	if (dstsize > srcsize + 1)
+		ft_memcpy(dst, src, srcsize + 1);
+	else if (dstsize != 0)
 	{
-		str[i] = s[start + i];
-		i++;
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = 0;
 	}
-	return (str);
+	return (srcsize);
 }
