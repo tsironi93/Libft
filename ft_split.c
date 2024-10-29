@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:14:57 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/29 08:47:15 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/29 15:06:27 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	ft_initiate_vars(size_t *i, int *j, int *s_word)
 	*s_word = -1;
 }
 
-
 static char	*fill_word(const char *str, int start, int end)
 {
 	char	*word;
@@ -80,18 +79,16 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	int		j;
 	int		s_word;
-	size_t	slen;
 
 	ft_initiate_vars(&i, &j, &s_word);
-	slen = ft_strlen(s);
 	res = ft_calloc((ft_countstrs(s, c) + 1), sizeof(char *));
 	if (!res)
 		return (NULL);
-	while (i <= slen)
+	while (i <= (ft_strlen(s)))
 	{
 		if (s[i] != c && s_word < 0)
 			s_word = i;
-		else if ((s[i] == c || i == slen) && s_word >= 0)
+		else if ((s[i] == c || i == ft_strlen(s)) && s_word >= 0)
 		{
 			res[j] = fill_word(s, s_word, i);
 			if (!(res[j]))

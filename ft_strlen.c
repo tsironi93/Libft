@@ -6,16 +6,16 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:06:40 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/15 21:54:24 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/29 13:38:24 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
-	int	count;
+	int		i;
+	size_t	count;
 
 	i = 0;
 	count = 0;

@@ -6,13 +6,13 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:16:54 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/25 15:06:02 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/29 13:50:26 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ilen(long num)
+static int	ft_ilen(long num)
 {
 	int	ilen;
 

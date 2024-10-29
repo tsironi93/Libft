@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:39:59 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/29 08:32:33 by itsiros          ###   ########.fr       */
+/*   Updated: 2024/10/29 13:37:58 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_isascii(int x);
 int		ft_isdigit(int i);
 int		ft_isprint(int x);
 void	*ft_memset(void *ptr, int value, size_t num);
-int		ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
