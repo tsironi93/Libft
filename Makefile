@@ -36,19 +36,19 @@ all: $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJS)
-	$(AR) rcs $(NAME) $(OBJS)
+	@$(AR) rcs $(NAME) $(OBJS)
 
 # Rule for object files
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean target to remove object files
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 # Fclean target to remove the library and object files
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 # Rebuild target to clean and then build again
 re: fclean all
