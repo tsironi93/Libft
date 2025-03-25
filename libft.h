@@ -6,7 +6,7 @@
 /*   By: itsiros <itsiros@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 17:39:59 by itsiros           #+#    #+#             */
-/*   Updated: 2024/10/29 13:37:58 by itsiros          ###   ########.fr       */
+/*   Updated: 2025/03/25 10:54:34 by itsiros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ char	*ft_itoa(int n);
 char	*ft_strtrim(char const *s1, char const *set);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	**ft_split(char const *s, char c);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
